@@ -5,7 +5,14 @@ Template antarmuka web (UI/UX) premium untuk alur **Verifikasi OTP (One-Time Pas
 Terinspirasi dari desain kelas atas Dribbble & Behance dengan sentuhan palet warna hangat (*Warm Amber & Coral* `#FF6E40`), tipografi modern (*Plus Jakarta Sans* & *Outfit*), serta *micro-interactions* yang sangat halus.
 
 ---
+# Ui/UX
 
+<div align="center">
+  <a href="https://github.com/dha-production/Ui-Ux-Verifikasi-OTP/blob/main/img/ui/ux.png">
+    <img src="https://raw.githubusercontent.com/dha-production/Ui-Ux-Verifikasi-OTP/main/img/ui/ux.png" alt="UI/UX Verifikasi OTP" width="100%">
+  </a>
+</div>
+---
 ## ✨ Fitur Utama
 
 - 📱 **3 Alur Layar Lengkap (Full 3-Step Flow):**
