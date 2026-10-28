@@ -1,0 +1,257 @@
+/* ==========================================================================
+   UI/UX ANIMATIONS & MICRO-INTERACTIONS
+   Smooth, Human-Crafted Transitions for Numbers, Buttons, and Steps
+   ========================================================================== */
+
+/* 1. Digit Pop & Number Typing Animation */
+@keyframes digitPop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.4;
+  }
+  60% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.otp-digit.digit-pop {
+  animation: digitPop 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Error Shake Animation when code is incorrect */
+@keyframes shakeInputs {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.otp-input-container.error-shake {
+  animation: shakeInputs 0.45s ease-in-out;
+}
+
+.otp-box-wrapper.error-state .otp-digit {
+  border-color: #EF4444 !important;
+  color: #DC2626 !important;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15) !important;
+}
+
+/* 2. Security Shield Pulse Rings */
+@keyframes pulseRing {
+  0% {
+    r: 24;
+    stroke-opacity: 0.6;
+    stroke-width: 2;
+  }
+  50% {
+    stroke-opacity: 0.2;
+    stroke-width: 1.5;
+  }
+  100% {
+    r: 34;
+    stroke-opacity: 0;
+    stroke-width: 0.8;
+  }
+}
+
+.pulse-ring {
+  animation: pulseRing 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  transform-origin: center;
+}
+
+.pulse-ring.delay-1 {
+  animation-delay: 0.8s;
+}
+
+/* 3. Button Loading & Verifying Spinner */
+.btn-loader {
+  display: none;
+  width: 22px;
+  height: 22px;
+  position: relative;
+}
+
+.btn-primary-pill.is-loading .btn-text,
+.btn-primary-pill.is-loading .btn-arrow {
+  display: none;
+}
+
+.btn-primary-pill.is-loading .btn-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner-blade {
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #FFFFFF;
+  border-radius: 50%;
+  animation: spinLoader 0.75s linear infinite;
+}
+
+@keyframes spinLoader {
+  to { transform: rotate(360deg); }
+}
+
+/* Button Click Ripple Effect */
+.btn-primary-pill .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: rippleEffect 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* 4. Step Transitions (Forward & Backward) */
+.slide-in-right {
+  animation: slideInRight 0.36s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.slide-out-left {
+  animation: slideOutLeft 0.36s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.36s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.slide-out-right {
+  animation: slideOutRight 0.36s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+}
+
+/* 5. Success Checkmark SVG Stroke Drawing */
+@keyframes checkmarkStroke {
+  0% {
+    stroke-dashoffset: 48;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes successScale {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  65% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.screen-step-3.active .success-badge {
+  animation: successScale 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Expanding Success Pulse Waves */
+@keyframes successPulseWave {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.success-pulse-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary);
+  animation: successPulseWave 2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  pointer-events: none;
+}
+
+/* 6. Active Focus Glow Pulse for OTP input */
+@keyframes focusPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 4px rgba(255, 110, 64, 0.18);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(255, 110, 64, 0.28);
+  }
+}
+
+.otp-box-wrapper.active-border .otp-digit {
+  animation: focusPulse 2s infinite ease-in-out;
+}
+
+/* 7. Live Countdown Number Ticking */
+@keyframes tickFade {
+  0% {
+    transform: translateY(-2px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.timer-digits.ticking {
+  animation: tickFade 0.25s ease-out;
+}

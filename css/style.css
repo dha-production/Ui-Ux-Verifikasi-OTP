@@ -1,0 +1,1339 @@
+/* ==========================================================================
+   UI/UX VERIFIKASI OTP PREMIUM - DHA PRODUCTION
+   Design System, Component Styles, Layout & Responsive Rules
+   ========================================================================== */
+
+:root {
+  /* Core Color Palette - Warm & High-End Modern Fintech / Mobile Aesthetic */
+  --color-primary: #FF6E40;
+  --color-primary-hover: #F4511E;
+  --color-primary-active: #E64A19;
+  --color-primary-light: #FF8A65;
+  --color-primary-soft: #FFF2EC;
+  --color-primary-glow: rgba(255, 110, 64, 0.22);
+  --color-primary-glow-subtle: rgba(255, 110, 64, 0.08);
+
+  /* Backgrounds & Surfaces */
+  --color-bg-page: #FAF8F5;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #FFFFFF;
+  --color-surface-subtle: #F8FAFC;
+  --color-art-bg: #FEEFE8;
+
+  /* Typography Colors */
+  --color-text-title: #1E293B;
+  --color-text-body: #64748B;
+  --color-text-muted: #94A3B8;
+  --color-text-inverse: #FFFFFF;
+
+  /* Borders & Dividers */
+  --color-border: #E2E8F0;
+  --color-border-hover: #CBD5E1;
+  --color-border-active: #FF6E40;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 10px 25px -5px rgba(255, 110, 64, 0.08), 0 8px 12px -6px rgba(15, 23, 42, 0.03);
+  --shadow-lg: 0 24px 48px -12px rgba(255, 110, 64, 0.14), 0 12px 24px -8px rgba(15, 23, 42, 0.06);
+  --shadow-phone: 0 28px 60px -14px rgba(255, 110, 64, 0.16), 0 18px 36px -10px rgba(15, 23, 42, 0.08);
+
+  /* Fonts */
+  --font-family-base: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+
+  /* Dimensions */
+  --phone-width: 380px;
+  --phone-height: 740px;
+  --radius-phone: 44px;
+  --radius-card: 28px;
+  --radius-input: 16px;
+  --radius-btn: 32px;
+}
+
+/* Dark Mode Theme */
+[data-theme="dark"] {
+  --color-bg-page: #0F172A;
+  --color-surface: #1E293B;
+  --color-surface-elevated: #243048;
+  --color-surface-subtle: #29354F;
+  --color-art-bg: #33201D;
+  --color-text-title: #F8FAFC;
+  --color-text-body: #94A3B8;
+  --color-text-muted: #64748B;
+  --color-border: #334155;
+  --color-border-hover: #475569;
+  --shadow-phone: 0 28px 60px -14px rgba(0, 0, 0, 0.55), 0 18px 36px -10px rgba(255, 110, 64, 0.12);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--color-bg-page);
+  color: var(--color-text-body);
+  line-height: 1.5;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ambient Backdrops */
+.ambient-glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-1 {
+  width: 500px;
+  height: 500px;
+  top: -120px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(255, 110, 64, 0.18) 0%, rgba(255, 204, 188, 0.05) 70%, transparent 100%);
+}
+
+.glow-2 {
+  width: 450px;
+  height: 450px;
+  bottom: -100px;
+  left: -80px;
+  background: radial-gradient(circle, rgba(255, 138, 101, 0.12) 0%, rgba(255, 243, 236, 0.04) 70%, transparent 100%);
+}
+
+.ambient-pattern {
+  position: fixed;
+  inset: 0;
+  opacity: 0.35;
+  background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==========================================================================
+   HEADER & SHOWCASE TOOLBAR
+   ========================================================================== */
+.showcase-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 28px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .showcase-nav {
+  background: rgba(30, 41, 59, 0.85);
+}
+
+.showcase-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px var(--color-primary-glow);
+}
+
+.brand-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-family-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-title);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.view-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Segmented Control */
+.segmented-control {
+  display: flex;
+  align-items: center;
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  padding: 3px;
+  border-radius: 14px;
+  gap: 2px;
+}
+
+.segment-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 11px;
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--color-text-body);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.segment-btn:hover {
+  color: var(--color-text-title);
+}
+
+.segment-btn.active {
+  background: var(--color-surface);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.icon-toggle-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-title);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.icon-toggle-btn:hover {
+  border-color: var(--color-primary-light);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   DEMO TOAST BANNER
+   ========================================================================== */
+.demo-toast {
+  position: relative;
+  z-index: 50;
+  max-width: 520px;
+  margin: 14px auto 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  font-size: 0.85rem;
+}
+
+.toast-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.toast-body {
+  flex-grow: 1;
+  color: var(--color-text-body);
+}
+
+.badge-code {
+  display: inline-block;
+  padding: 2px 8px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-radius: 8px;
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+}
+
+.toast-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 0.775rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.toast-copy-btn:hover {
+  background: var(--color-primary-hover);
+}
+
+/* ==========================================================================
+   MAIN WRAPPER & STEPPER
+   ========================================================================== */
+.main-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Flow Stepper Bar */
+.flow-stepper {
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.stepper-track {
+  position: absolute;
+  top: 17px;
+  left: 36px;
+  right: 36px;
+  height: 3px;
+  background: var(--color-border);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.stepper-progress-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 4px;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stepper-steps {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+}
+
+.step-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dot-inner {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-sm);
+}
+
+.dot-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: color 0.3s ease;
+}
+
+.step-dot.active .dot-inner {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-primary-glow);
+  transform: scale(1.08);
+}
+
+.step-dot.active .dot-label {
+  color: var(--color-text-title);
+}
+
+.step-dot.completed .dot-inner {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.step-dot.completed .dot-label {
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   VIEWPORT STAGE & REALISTIC PHONE FRAME
+   ========================================================================== */
+.viewport-stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  perspective: 1200px;
+}
+
+/* Phone Mockup Frame */
+.phone-frame {
+  position: relative;
+  width: var(--phone-width);
+  min-height: var(--phone-height);
+  background: var(--color-surface);
+  border-radius: var(--radius-phone);
+  box-shadow: var(--shadow-phone);
+  border: 10px solid #2B2D42;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] .phone-frame {
+  border-color: #0B0F19;
+}
+
+/* Phone Top Speaker & Camera Notch */
+.phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 24px;
+  background: #2B2D42;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+[data-theme="dark"] .phone-notch {
+  background: #0B0F19;
+}
+
+.phone-speaker {
+  width: 44px;
+  height: 4px;
+  background: #475569;
+  border-radius: 2px;
+}
+
+.phone-camera {
+  width: 8px;
+  height: 8px;
+  background: #334155;
+  border-radius: 50%;
+  border: 1px solid #1E293B;
+}
+
+/* Phone Status Bar */
+.phone-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px 4px 24px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-title);
+  z-index: 80;
+  user-select: none;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.battery-icon {
+  width: 18px;
+  height: 9px;
+  border: 1.5px solid currentColor;
+  border-radius: 3px;
+  padding: 1px;
+  position: relative;
+}
+
+.battery-icon::after {
+  content: '';
+  position: absolute;
+  right: -3.5px;
+  top: 2px;
+  width: 2px;
+  height: 3px;
+  background: currentColor;
+  border-radius: 0 1px 1px 0;
+}
+
+.battery-level {
+  width: 80%;
+  height: 100%;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+/* Phone Screen Scrollable Canvas */
+.phone-screen {
+  flex: 1;
+  display: flex;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Home Indicator Bar */
+.phone-home-indicator {
+  width: 130px;
+  height: 4px;
+  background: #CBD5E1;
+  border-radius: 2px;
+  margin: 10px auto 8px auto;
+  z-index: 80;
+}
+
+[data-theme="dark"] .phone-home-indicator {
+  background: #475569;
+}
+
+/* ==========================================================================
+   SCREEN VIEWS (STEPS 1, 2, 3)
+   ========================================================================== */
+.screen-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 12px 26px 20px 26px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(30px);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.screen-view::-webkit-scrollbar {
+  display: none;
+}
+
+.screen-view.active {
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.screen-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   SCREEN 1: OTP VERIFICATION (ENTRY)
+   ========================================================================== */
+.illustration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+
+.illustration-art {
+  width: 220px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.screen-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.screen-header.text-left {
+  text-align: left;
+}
+
+.screen-title {
+  font-family: var(--font-family-display);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--color-text-title);
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.screen-subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-body);
+  line-height: 1.45;
+  padding: 0 8px;
+}
+
+.screen-header.text-left .screen-subtitle {
+  padding: 0;
+}
+
+/* Form Styles */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-field-group {
+  position: relative;
+}
+
+.floating-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+  margin-left: 2px;
+  transition: color 0.2s ease;
+}
+
+.input-field-group.active-accent .floating-label {
+  color: var(--color-primary);
+}
+
+.input-box-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--color-surface);
+  border: 1.8px solid var(--color-border);
+  border-radius: var(--radius-input);
+  padding: 0 16px;
+  height: 52px;
+  transition: all 0.25s ease;
+}
+
+.input-box-wrapper:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-primary-glow);
+}
+
+.input-field-group.active-accent .input-box-wrapper {
+  border-color: var(--color-primary);
+}
+
+.custom-text-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-family-base);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-title);
+}
+
+.custom-text-input::placeholder {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.field-action-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.field-action-btn:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.country-prefix {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-title);
+  margin-right: 10px;
+  padding-right: 10px;
+  border-right: 1.5px solid var(--color-border);
+}
+
+/* Channel Radio Pill */
+.channel-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -4px;
+}
+
+.channel-label {
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.channel-options {
+  display: flex;
+  gap: 8px;
+}
+
+.channel-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-body);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.channel-pill input {
+  display: none;
+}
+
+.channel-pill.active {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Primary Pill Button */
+.action-footer {
+  margin-top: 20px;
+}
+
+.btn-primary-pill {
+  position: relative;
+  width: 100%;
+  height: 52px;
+  border-radius: var(--radius-btn);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #FF5722 100%);
+  color: #FFFFFF;
+  border: none;
+  font-family: var(--font-family-base);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px -4px var(--color-primary-glow);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.btn-primary-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px -4px rgba(255, 110, 64, 0.35);
+}
+
+.btn-primary-pill:active {
+  transform: translateY(0);
+}
+
+.btn-primary-pill:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   SCREEN 2: VERIFICATION CODE
+   ========================================================================== */
+.screen-topbar {
+  margin-bottom: 24px;
+}
+
+.back-nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: transparent;
+  border: none;
+  color: var(--color-text-title);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.back-nav-btn:hover {
+  background: var(--color-surface-subtle);
+  transform: translateX(-2px);
+}
+
+.target-highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 0.825rem;
+  font-weight: 600;
+}
+
+/* OTP Boxes Container */
+.otp-input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 32px 0 28px 0;
+}
+
+.otp-box-wrapper {
+  position: relative;
+  flex: 1;
+  max-width: 68px;
+  height: 72px;
+}
+
+.otp-digit {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  background: var(--color-surface);
+  border: 1.8px solid var(--color-border);
+  color: var(--color-text-title);
+  font-family: var(--font-family-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-sm);
+}
+
+.otp-box-wrapper.active-border .otp-digit,
+.otp-digit:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-primary-glow);
+  transform: translateY(-2px);
+}
+
+.otp-box-wrapper.filled .otp-digit {
+  border-color: #CBD5E1;
+  background: var(--color-surface);
+}
+
+.otp-box-wrapper.has-value .otp-digit {
+  color: var(--color-text-title);
+}
+
+/* Active indicator subtle dot */
+.active-dot {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  transition: transform 0.2s ease;
+  pointer-events: none;
+}
+
+.otp-digit:focus ~ .active-dot {
+  transform: translateX(-50%) scale(1);
+}
+
+/* Resend Countdown Bar */
+.resend-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.timer-countdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--color-text-body);
+}
+
+.timer-pie {
+  width: 22px;
+  height: 22px;
+  transform: rotate(-90deg);
+}
+
+.circle-bg {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 3.8;
+}
+
+.circle-progress {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.5s ease;
+}
+
+.timer-digits {
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 0.95rem;
+}
+
+.btn-resend {
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 8px;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.btn-resend:hover:not(:disabled) {
+  background: var(--color-primary-soft);
+}
+
+.btn-resend:disabled {
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.security-badge-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   SCREEN 3: SUCCESS STATE
+   ========================================================================== */
+.success-layout {
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.confetti-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.success-badge-container {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-badge {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 3px solid var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 28px -4px var(--color-primary-glow);
+  z-index: 2;
+}
+
+.checkmark-svg {
+  width: 56px;
+  height: 56px;
+}
+
+.checkmark-circle {
+  stroke: var(--color-primary-soft);
+  stroke-width: 3;
+}
+
+.checkmark-check {
+  stroke: var(--color-primary);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: checkmarkStroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) 0.2s forwards;
+}
+
+/* Summary Card */
+.auth-summary-card {
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 16px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.825rem;
+}
+
+.summary-label {
+  color: var(--color-text-muted);
+}
+
+.summary-value {
+  font-weight: 600;
+  color: var(--color-text-title);
+}
+
+.summary-badge-active {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: #DCFCE7;
+  color: #166534;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .summary-badge-active {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ADE80;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.btn-text-ghost {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.btn-text-ghost:hover {
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   VIEW MODES: SHOWCASE FLOW & FULL RESPONSIVE
+   ========================================================================== */
+
+/* MODE 2: 3-SCREEN SIDE-BY-SIDE FLOW SHOWCASE */
+body.mode-flow .main-wrapper {
+  max-width: 1300px;
+}
+
+body.mode-flow .phone-frame {
+  display: none;
+}
+
+body.mode-flow .viewport-stage {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* In flow mode, cloned screens appear as 3 realistic phone mockups side-by-side */
+.flow-showcase-container {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.flow-card-device {
+  width: 360px;
+  min-height: 680px;
+  background: var(--color-surface);
+  border-radius: var(--radius-phone);
+  border: 8px solid #2B2D42;
+  box-shadow: var(--shadow-phone);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+[data-theme="dark"] .flow-card-device {
+  border-color: #0B0F19;
+}
+
+.flow-card-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+  color: #FFFFFF;
+  padding: 4px 14px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 4px 10px var(--color-primary-glow);
+  z-index: 10;
+}
+
+/* MODE 3: RESPONSIVE WEB CARD VIEW (DESKTOP APPLICATION FEEL) */
+body.mode-responsive .phone-frame {
+  width: 100%;
+  max-width: 600px;
+  min-height: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-lg);
+}
+
+body.mode-responsive .phone-notch,
+body.mode-responsive .phone-status-bar,
+body.mode-responsive .phone-home-indicator {
+  display: none;
+}
+
+body.mode-responsive .screen-view {
+  padding: 36px 36px 36px 36px;
+}
+
+/* ==========================================================================
+   DEVELOPER INTEGRATION DRAWER
+   ========================================================================== */
+.integration-guide {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 36px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.guide-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-title);
+  list-style: none;
+}
+
+.guide-summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.guide-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-radius: 6px;
+}
+
+.guide-content {
+  padding: 0 20px 20px 20px;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.85rem;
+  color: var(--color-text-body);
+}
+
+.guide-content p {
+  margin: 12px 0 8px 0;
+}
+
+.guide-content pre {
+  background: #0F172A;
+  color: #F8FAFC;
+  padding: 14px;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-family: monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   MOBILE MEDIA QUERIES (TRUE RESPONSIVENESS)
+   ========================================================================== */
+@media (max-width: 640px) {
+  .showcase-nav {
+    padding: 10px 14px;
+  }
+
+  .brand-title {
+    font-size: 0.9rem;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
+  .segment-btn span {
+    display: none;
+  }
+
+  .segment-btn {
+    padding: 8px 10px;
+  }
+
+  .main-wrapper {
+    padding: 12px 10px 40px 10px;
+  }
+
+  /* On small mobile screens, the phone frame collapses to native full width borderless */
+  .phone-frame {
+    width: 100%;
+    min-height: auto;
+    border: none;
+    border-radius: 24px;
+    box-shadow: none;
+    background: var(--color-surface);
+  }
+
+  .phone-notch,
+  .phone-status-bar,
+  .phone-home-indicator {
+    display: none;
+  }
+
+  .screen-view {
+    padding: 20px 16px;
+  }
+
+  .otp-digit {
+    font-size: 1.45rem;
+  }
+}

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI/UX Verifikasi OTP Premium - Responsive & Animated</title>
+  <meta name="description" content="Template UI/UX Web Verifikasi OTP Modern, Human-crafted, Responsive dengan animasi interaktif, timer mundur, dan micro-interactions halus.">
+  <meta name="author" content="Afdhal - DHA Production">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="mode-preview">
+
+  <!-- Ambient Decorative Background -->
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+  <div class="ambient-pattern" aria-hidden="true"></div>
+
+  <!-- Top Showcase Navigation Bar -->
+  <header class="showcase-nav">
+    <div class="showcase-brand">
+      <div class="brand-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
+      <div class="brand-info">
+        <span class="brand-title">SecureAuth UI</span>
+        <span class="brand-subtitle">OTP Verification Template</span>
+      </div>
+    </div>
+
+    <!-- View Mode Switcher -->
+    <div class="view-controls">
+      <div class="segmented-control" role="tablist" aria-label="Mode Tampilan">
+        <button type="button" class="segment-btn active" data-view="mobile" id="viewMobileBtn" role="tab" aria-selected="true" title="Tampilan Mockup Ponsel Interaktif">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+            <path d="M12 18h.01"/>
+          </svg>
+          <span>Mobile Device</span>
+        </button>
+        <button type="button" class="segment-btn" data-view="flow" id="viewFlowBtn" role="tab" aria-selected="false" title="Lihat 3 Layar Berdampingan (Showcase Flow)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="7" height="9" x="3" y="3" rx="1"/>
+            <rect width="7" height="9" x="14" y="3" rx="1"/>
+            <rect width="7" height="9" x="8.5" y="12" rx="1"/>
+          </svg>
+          <span>3-Step Showcase</span>
+        </button>
+        <button type="button" class="segment-btn" data-view="responsive" id="viewResponsiveBtn" role="tab" aria-selected="false" title="Tampilan Card Responsif Full Web">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="14" x="2" y="3" rx="2"/>
+            <line x1="8" x2="16" y1="21" y2="21"/>
+            <line x1="12" x2="12" y1="17" y2="21"/>
+          </svg>
+          <span>Web Responsive</span>
+        </button>
+      </div>
+
+      <!-- Quick Action Pill: Sound & Theme -->
+      <div class="nav-actions">
+        <button type="button" class="icon-toggle-btn" id="soundToggleBtn" title="Toggle Efek Suara Haptic">
+          <svg class="sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          </svg>
+          <svg class="sound-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <line x1="23" x2="1" y1="1" y2="23"/>
+          </svg>
+        </button>
+        <button type="button" class="icon-toggle-btn" id="themeToggleBtn" title="Ganti Mode Terang / Gelap">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Interactive Demo Notification Banner -->
+  <aside class="demo-toast" id="demoToast" role="status" aria-live="polite">
+    <div class="toast-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+      </svg>
+    </div>
+    <div class="toast-body">
+      <strong>Demo Code:</strong> Kode OTP percobaan adalah <span class="badge-code">8524</span>
+    </div>
+    <button type="button" class="toast-copy-btn" id="quickAutofillBtn">
+      <span>Auto-fill</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </button>
+  </aside>
+
+  <!-- Main Container -->
+  <main class="main-wrapper" id="mainWrapper">
+
+    <!-- Stepper Indicator (Untuk memudahkan navigasi langsung antar langkah) -->
+    <nav class="flow-stepper" aria-label="Progress Verifikasi">
+      <div class="stepper-track">
+        <div class="stepper-progress-fill" id="stepperFill" style="width: 0%;"></div>
+      </div>
+      <div class="stepper-steps">
+        <button type="button" class="step-dot active" data-step="1" id="stepDot1" aria-label="Langkah 1: Masukkan Data">
+          <span class="dot-inner">1</span>
+          <span class="dot-label">Data Akun</span>
+        </button>
+        <button type="button" class="step-dot" data-step="2" id="stepDot2" aria-label="Langkah 2: Verifikasi Kode OTP">
+          <span class="dot-inner">2</span>
+          <span class="dot-label">Kode OTP</span>
+        </button>
+        <button type="button" class="step-dot" data-step="3" id="stepDot3" aria-label="Langkah 3: Selesai">
+          <span class="dot-inner">3</span>
+          <span class="dot-label">Sukses</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- CONTAINER 1: Interactive Device / Responsive Viewport -->
+    <div class="viewport-stage" id="viewportStage">
+
+      <!-- Realistic Mobile Phone Shell (Dapat diaktifkan/dinonaktifkan oleh switcher) -->
+      <div class="phone-frame" id="phoneFrame">
+        <!-- Phone Speaker & Camera Notch -->
+        <div class="phone-notch" aria-hidden="true">
+          <div class="phone-speaker"></div>
+          <div class="phone-camera"></div>
+        </div>
+
+        <!-- Phone Status Bar -->
+        <div class="phone-status-bar" aria-hidden="true">
+          <span class="status-time" id="statusClock">09:41</span>
+          <div class="status-icons">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19H19.65l-.62-1.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"/>
+            </svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/>
+            </svg>
+            <div class="battery-icon">
+              <div class="battery-level"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone Screen Content Wrapper -->
+        <div class="phone-screen" id="phoneScreen">
+
+          <!-- ================= SCREEN 1: INPUT CREDENTIALS ================= -->
+          <section class="screen-view screen-step-1 active" id="screen1" aria-labelledby="heading-step1">
+            <div class="screen-content">
+              <!-- Illustration Area -->
+              <div class="illustration-container">
+                <div class="illustration-art" aria-hidden="true">
+                  <!-- Custom Hand-Crafted Vector Illustration -->
+                  <svg class="hero-svg" viewBox="0 0 260 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background Soft Foliage & Decorative Circles -->
+                    <circle cx="130" cy="105" r="95" fill="var(--color-art-bg)" opacity="0.65"/>
+                    <circle cx="170" cy="65" r="38" fill="var(--color-primary-soft)" opacity="0.45"/>
+                    
+                    <!-- Stylized plant/leaves in background -->
+                    <path d="M78 170 C75 140, 60 120, 48 115 C58 112, 78 122, 82 145 Z" fill="#E2E8F0" opacity="0.8"/>
+                    <path d="M84 175 C82 135, 75 105, 68 95 C78 98, 90 115, 88 150 Z" fill="#CBD5E1" opacity="0.6"/>
+                    <path d="M92 180 C95 145, 110 125, 120 120 C112 128, 105 145, 96 180 Z" fill="#E2E8F0" opacity="0.7"/>
+
+                    <!-- Standing Character -->
+                    <g class="character-group">
+                      <!-- Shadow -->
+                      <ellipse cx="140" cy="182" rx="42" ry="7" fill="var(--color-shadow-base)" opacity="0.12"/>
+                      
+                      <!-- Legs / Pants -->
+                      <path d="M127 118 L124 174 L131 175 L135 125 Z" fill="#1E293B"/>
+                      <path d="M136 122 L142 174 L149 174 L143 118 Z" fill="#0F172A"/>
+                      
+                      <!-- Shoes -->
+                      <path d="M121 174 C121 174, 123 178, 131 178 L133 174 Z" fill="#334155"/>
+                      <path d="M141 174 C141 174, 143 178, 151 178 L152 174 Z" fill="#334155"/>
+                      
+                      <!-- Torso & Top -->
+                      <path d="M127 88 L144 88 L142 118 L127 118 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+                      
+                      <!-- Left Arm Leaning on Shield -->
+                      <path d="M128 90 L108 84 L102 88" stroke="#FED7AA" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <!-- Right Arm relaxed -->
+                      <path d="M144 90 L152 110 L150 122" stroke="#FED7AA" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      
+                      <!-- Neck & Head -->
+                      <path d="M133 80 L137 80 L137 88 L133 88 Z" fill="#FED7AA"/>
+                      <circle cx="135" cy="74" r="9.5" fill="#FED7AA"/>
+                      <!-- Hair -->
+                      <path d="M127 75 C127 66, 143 65, 144 73 C144 76, 142 81, 142 83 C138 82, 133 82, 130 83 C127 81, 127 77, 127 75 Z" fill="#1E293B"/>
+                    </g>
+
+                    <!-- Prominent Security Shield Badge with Animated Pulse -->
+                    <g class="shield-badge-group">
+                      <circle class="pulse-ring" cx="92" cy="76" r="32" stroke="var(--color-primary)" stroke-width="1.5" stroke-opacity="0.3" fill="none"/>
+                      <circle class="pulse-ring delay-1" cx="92" cy="76" r="27" stroke="var(--color-primary)" stroke-width="1.5" stroke-opacity="0.2" fill="none"/>
+                      
+                      <!-- Main Shield Circle Container -->
+                      <circle cx="92" cy="76" r="23" fill="var(--color-surface)" stroke="var(--color-primary-light)" stroke-width="2.5" filter="url(#dropShadowShield)"/>
+                      
+                      <!-- Shield Icon Inside -->
+                      <path d="M92 65 C85 66 84 69 84 73 C84 81 92 86 92 86 C92 86 100 81 100 73 C100 69 99 66 92 65 Z" 
+                            fill="none" 
+                            stroke="var(--color-primary)" 
+                            stroke-width="2.2" 
+                            stroke-linejoin="round"/>
+                      <!-- Check inside Shield -->
+                      <path d="M88.5 75.5 L91 78 L95.5 73.5" 
+                            fill="none" 
+                            stroke="var(--color-primary)" 
+                            stroke-width="2" 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round"/>
+                    </g>
+
+                    <defs>
+                      <filter id="dropShadowShield" x="60" y="46" width="64" height="64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#FF6B35" flood-opacity="0.18"/>
+                      </filter>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Header Info -->
+              <div class="screen-header">
+                <h1 class="screen-title" id="heading-step1">OTP Verification</h1>
+                <p class="screen-subtitle">
+                  Enter email and phone number to send one time Password
+                </p>
+              </div>
+
+              <!-- Form Fields -->
+              <form class="auth-form" id="formStep1" onsubmit="return false;">
+                <!-- Email Input Field -->
+                <div class="input-field-group">
+                  <label for="inputEmail" class="floating-label">Email</label>
+                  <div class="input-box-wrapper">
+                    <input 
+                      type="email" 
+                      id="inputEmail" 
+                      class="custom-text-input" 
+                      value="dscode@gmail.com" 
+                      placeholder="name@domain.com"
+                      required
+                      autocomplete="email"
+                    >
+                    <button type="button" class="field-action-btn" id="editEmailBtn" title="Edit Email" aria-label="Edit email">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"/>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Phone Number Input Field -->
+                <div class="input-field-group active-accent">
+                  <label for="inputPhone" class="floating-label active-label">Phone Number</label>
+                  <div class="input-box-wrapper has-country">
+                    <span class="country-prefix">+44</span>
+                    <input 
+                      type="tel" 
+                      id="inputPhone" 
+                      class="custom-text-input" 
+                      value="99999999" 
+                      placeholder="99999999"
+                      pattern="[0-9]{6,14}"
+                      required
+                      autocomplete="tel-national"
+                    >
+                  </div>
+                </div>
+
+                <!-- Channel Selector Pills (Opsional Pilihan Pengiriman) -->
+                <div class="channel-selector">
+                  <span class="channel-label">Kirim Kode Via:</span>
+                  <div class="channel-options">
+                    <label class="channel-pill active">
+                      <input type="radio" name="otpChannel" value="email" checked>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="20" height="16" x="2" y="4" rx="2"/>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                      </svg>
+                      <span>Email</span>
+                    </label>
+                    <label class="channel-pill">
+                      <input type="radio" name="otpChannel" value="sms">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                      </svg>
+                      <span>SMS/WA</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="action-footer">
+                  <button type="submit" class="btn-primary-pill" id="btnSendOtp">
+                    <span class="btn-text">Continue</span>
+                    <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </section>
+
+
+          <!-- ================= SCREEN 2: VERIFICATION CODE (OTP) ================= -->
+          <section class="screen-view screen-step-2" id="screen2" aria-labelledby="heading-step2">
+            <div class="screen-content">
+              <!-- Top Back Nav -->
+              <div class="screen-topbar">
+                <button type="button" class="back-nav-btn" id="btnBackTo1" title="Kembali ke langkah sebelumnya" aria-label="Kembali">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6"/>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Header Info -->
+              <div class="screen-header text-left">
+                <h1 class="screen-title" id="heading-step2">Verification Code</h1>
+                <p class="screen-subtitle">
+                  We have sent the verification code to your <span id="displayTargetChannel">email address</span>
+                </p>
+                <div class="target-highlight-badge" id="targetBadge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                  <span id="targetEmailDisplay">dscode@gmail.com</span>
+                </div>
+              </div>
+
+              <!-- OTP Inputs Grid -->
+              <form class="otp-form" id="formOtp" onsubmit="return false;">
+                <div class="otp-input-container" id="otpContainer">
+                  <div class="otp-box-wrapper">
+                    <input 
+                      type="text" 
+                      class="otp-digit" 
+                      inputmode="numeric" 
+                      pattern="[0-9]*" 
+                      maxlength="1" 
+                      value="8" 
+                      data-index="0"
+                      aria-label="Digit OTP 1"
+                      autocomplete="one-time-code"
+                    >
+                    <span class="active-dot" aria-hidden="true"></span>
+                  </div>
+
+                  <div class="otp-box-wrapper">
+                    <input 
+                      type="text" 
+                      class="otp-digit" 
+                      inputmode="numeric" 
+                      pattern="[0-9]*" 
+                      maxlength="1" 
+                      value="5" 
+                      data-index="1"
+                      aria-label="Digit OTP 2"
+                    >
+                    <span class="active-dot" aria-hidden="true"></span>
+                  </div>
+
+                  <div class="otp-box-wrapper">
+                    <input 
+                      type="text" 
+                      class="otp-digit" 
+                      inputmode="numeric" 
+                      pattern="[0-9]*" 
+                      maxlength="1" 
+                      value="2" 
+                      data-index="2"
+                      aria-label="Digit OTP 3"
+                    >
+                    <span class="active-dot" aria-hidden="true"></span>
+                  </div>
+
+                  <div class="otp-box-wrapper active-border">
+                    <input 
+                      type="text" 
+                      class="otp-digit" 
+                      inputmode="numeric" 
+                      pattern="[0-9]*" 
+                      maxlength="1" 
+                      value="" 
+                      data-index="3"
+                      aria-label="Digit OTP 4"
+                      placeholder=""
+                    >
+                    <span class="active-dot" aria-hidden="true"></span>
+                  </div>
+                </div>
+
+                <!-- Animated Timer & Resend Option -->
+                <div class="resend-wrapper">
+                  <div class="timer-countdown" id="timerSection">
+                    <div class="timer-pie" id="timerPie" style="--p: 75%;">
+                      <svg width="22" height="22" viewBox="0 0 36 36">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="circle-progress" id="timerCircle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                      </svg>
+                    </div>
+                    <span class="timer-text">Resend code in <strong class="timer-digits" id="timerDigits">00:45</strong></span>
+                  </div>
+                  <button type="button" class="btn-resend" id="btnResendOtp" disabled>
+                    Kirim Ulang Kode
+                  </button>
+                </div>
+
+                <!-- Confirm Button with Loading / Verifying State -->
+                <div class="action-footer">
+                  <button type="button" class="btn-primary-pill" id="btnConfirmOtp">
+                    <span class="btn-text">Confirm</span>
+                    <div class="btn-loader" id="btnLoader" aria-hidden="true">
+                      <div class="spinner-blade"></div>
+                    </div>
+                  </button>
+                </div>
+              </form>
+
+              <!-- Security Note -->
+              <div class="security-badge-note">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                <span>Dilindungi enkripsi end-to-end 256-bit</span>
+              </div>
+            </div>
+          </section>
+
+
+          <!-- ================= SCREEN 3: SUCCESS STATE ================= -->
+          <section class="screen-view screen-step-3" id="screen3" aria-labelledby="heading-step3">
+            <div class="screen-content success-layout">
+              <!-- Confetti Canvas Container -->
+              <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
+              <!-- Animated Checkmark Badge -->
+              <div class="success-badge-container">
+                <div class="success-pulse-ring"></div>
+                <div class="success-badge">
+                  <svg class="checkmark-svg" viewBox="0 0 60 60">
+                    <circle class="checkmark-circle" cx="30" cy="30" r="27" fill="none"/>
+                    <path class="checkmark-check" fill="none" d="M18 31 L26 39 L42 22"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Success Text -->
+              <div class="screen-header text-center">
+                <h1 class="screen-title" id="heading-step3">Success!</h1>
+                <p class="screen-subtitle">
+                  Congratulations! You have been successfully authenticated
+                </p>
+              </div>
+
+              <!-- Verified User Meta Card -->
+              <div class="auth-summary-card">
+                <div class="summary-row">
+                  <span class="summary-label">Metode Verifikasi</span>
+                  <span class="summary-value" id="summaryMethod">Email OTP (4 Digit)</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Target ID</span>
+                  <span class="summary-value" id="summaryTarget">dscode@gmail.com</span>
+                </div>
+                <div class="summary-row">
+                  <span class="summary-label">Status Sesi</span>
+                  <span class="summary-badge-active">
+                    <span class="badge-dot"></span> Aktif & Terlindungi
+                  </span>
+                </div>
+              </div>
+
+              <!-- Continue Button -->
+              <div class="action-footer">
+                <button type="button" class="btn-primary-pill" id="btnSuccessContinue">
+                  <span class="btn-text">Continue</span>
+                  <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+                <button type="button" class="btn-text-ghost" id="btnRestartFlow">
+                  Ulangi Demonstrasi Alur
+                </button>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Phone Home Indicator Bar -->
+        <div class="phone-home-indicator" aria-hidden="true"></div>
+      </div>
+
+    </div>
+
+    <!-- Live Code / Integration Helper Drawer (Collapsible) -->
+    <details class="integration-guide">
+      <summary class="guide-summary">
+        <div class="summary-left">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+          <span>Panduan Integrasi Backend & Event Hook</span>
+        </div>
+        <span class="guide-badge">Developer Friendly</span>
+      </summary>
+      <div class="guide-content">
+        <p>Template ini siap dihubungkan langsung ke backend API Anda (Laravel, NodeJS, Express, Firebase, atau REST API apa pun):</p>
+        <pre><code>// Contoh Integrasi JavaScript Event:
+window.addEventListener('otp:verified', (e) => {
+  const { otpCode, email, phone } = e.detail;
+  console.log('OTP Berhasil Diverifikasi:', otpCode);
+  
+  // Kirim ke endpoint API backend Anda:
+  // fetch('/api/verify-otp', {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify({ otp: otpCode, email })
+  // }).then(res => res.json()).then(data => { ... });
+});</code></pre>
+      </div>
+    </details>
+
+  </main>
+
+  <!-- Interactive Sound Audio Synthetic Helper -->
+  <script src="js/otp-input.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
